@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Astromelia • Detalles Personalizados</title>
+    <script>
+      // Manejo de rutas estáticas en GitHub Pages
+      var path = window.location.pathname;
+      var repo = '/Astromelia-static';
+      if (path.startsWith(repo)) {
+        var sub = path.slice(repo.length);
+        if (sub && sub !== '/' && !sub.startsWith('/#')) {
+          window.location.replace(repo + '/#' + sub + window.location.search);
+        } else {
+          window.location.replace(repo + '/' + window.location.search);
+        }
+      } else {
+        window.location.replace('/#' + path + window.location.search);
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

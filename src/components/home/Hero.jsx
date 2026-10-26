@@ -10,7 +10,7 @@ export function Hero() {
       <div className="relative">
         <div className="rounded-[28px] overflow-hidden bg-[#EDE6F7] aspect-[4/3.2] lg:aspect-[1.15/1] shadow-[0_20px_60px_rgba(92,46,142,0.18)]">
           <img
-            src="/fotos/ARREGLOS_GRANDES_Arreglo Canasta Romance.jpg"
+            src={`${import.meta.env.BASE_URL}fotos/ARREGLOS_GRANDES_Arreglo Canasta Romance.jpg`}
             alt="Canasta de flores Astromelia"
             onError={handleImageError}
             className="w-full h-full object-cover"

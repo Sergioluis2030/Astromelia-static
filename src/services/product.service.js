@@ -3,15 +3,20 @@ import { DEFAULT_PRODUCT_IMAGE } from '../utils/image.util';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3002/api';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3002';
+const BASE_URL = import.meta.env.BASE_URL || '/';
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false';
 
 /**
  * Normaliza las URLs de las fotos para resolver rutas relativas (/uploads/...) hacia el servidor backend
+ * y rutas estáticas (/fotos/...) considerando la base de GitHub Pages
  */
 function normalizeImageUrl(url) {
   if (!url) return DEFAULT_PRODUCT_IMAGE;
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
-  if (url.startsWith('/fotos/') || url.startsWith('/placeholder-') || url.startsWith('data:')) return url;
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
+  if (url.startsWith('/fotos/') || url.startsWith('/placeholder-')) {
+    const cleanPath = url.startsWith('/') ? url.slice(1) : url;
+    return `${BASE_URL}${cleanPath}`;
+  }
   return `${BACKEND_URL}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100%;
+    background-color: #FBF7FF;
+    color: #2B2035;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+}
